@@ -24,9 +24,12 @@
 #include "drivers/formike240x320x16_ili9320.h"
 #include "drivers/touch.h"
 #include "utils/uartstdio.h"
-#include <GPS_UBLOX.h>
-#include <GPS_UBLOX.cpp>
-extern GPS;
+#include "GPS.h"
+
+
+
+//#include <GPS_UBLOX.cpp>
+//extern GPS;
 //*****************************************************************************
 //
 //! \addtogroup example_list
@@ -97,7 +100,7 @@ static char g_cTmpBuf[PATH_BUF_SIZE];
 // The buffer that holds the command line.
 //
 //*****************************************************************************
-static char g_cCmdBuf[CMD_BUF_SIZE];
+//static char g_cCmdBuf[CMD_BUF_SIZE];
 
 //*****************************************************************************
 //
@@ -1553,7 +1556,7 @@ __error__(char *pcFilename, unsigned long ulLine)
 int
 main(void)
 {
-    int nStatus;
+   // int nStatus;
     FRESULT fresult;
     unsigned long ulUser0, ulUser1, ulIPAddr;
     unsigned char pucMACAddr[6];
@@ -1719,11 +1722,14 @@ main(void)
     while(1)
     {
 
-    	//GPS GPS;
-    	typedef class GPS_UBLOX_Class { public: void Read(); } GPS;;;;;;  // define myclass
-    	GPS_UBLOX_Class GPS;                                         // myclass global object
-    	   { GPS.Read(); }
 
+
+
+    	   Read();
+
+
+    //	GPS Read();
+    	PrintfStatus("%i",ch);
 
         //
         // Print a prompt to the console.  Show the CWD.
@@ -1807,3 +1813,4 @@ main(void)
     {
     }
 }
+

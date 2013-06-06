@@ -20,7 +20,7 @@ $(GEN_CMDS__FLAG) \
 "./utils/cmdline.obj" \
 "./startup_ccs.obj" \
 "./sd_card.obj" \
-"./GPS_UBLOX.obj" \
+"./GPS.obj" \
 -l"libc.a" \
 -l"C:/StellarisWare/boards/rdk-idm/sd_card/ccs/../../../../driverlib/ccs-cm3/Debug/driverlib-cm3.lib" \
 -l"C:/StellarisWare/boards/rdk-idm/sd_card/ccs/../../../../grlib/ccs-cm3/Debug/grlib-cm3.lib" \
@@ -145,9 +145,8 @@ ERGO\ Gen\ 5\ Test1.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(TMS470_EXECUTABLE_OUTPUTS__QUOTED) "ERGO Gen 5 Test1.out"
-	-$(RM) "GPS_UBLOX.pp" 
-	-$(RM) "sd_card.pp" "startup_ccs.pp" "utils\cmdline.pp" "utils\locator.pp" "utils\lwiplib.pp" "utils\swupdate.pp" "utils\uartstdio.pp" "utils\ustdlib.pp" "third_party\fatfs\src\ff.pp" "third_party\fatfs\port\mmc-rdk-idm.pp" "drivers\formike240x320x16_ili9320.pp" "drivers\touch.pp" 
-	-$(RM) "GPS_UBLOX.obj" "sd_card.obj" "startup_ccs.obj" "utils\cmdline.obj" "utils\locator.obj" "utils\lwiplib.obj" "utils\swupdate.obj" "utils\uartstdio.obj" "utils\ustdlib.obj" "third_party\fatfs\src\ff.obj" "third_party\fatfs\port\mmc-rdk-idm.obj" "drivers\formike240x320x16_ili9320.obj" "drivers\touch.obj" 
+	-$(RM) "GPS.pp" "sd_card.pp" "startup_ccs.pp" "utils\cmdline.pp" "utils\locator.pp" "utils\lwiplib.pp" "utils\swupdate.pp" "utils\uartstdio.pp" "utils\ustdlib.pp" "third_party\fatfs\src\ff.pp" "third_party\fatfs\port\mmc-rdk-idm.pp" "drivers\formike240x320x16_ili9320.pp" "drivers\touch.pp" 
+	-$(RM) "GPS.obj" "sd_card.obj" "startup_ccs.obj" "utils\cmdline.obj" "utils\locator.obj" "utils\lwiplib.obj" "utils\swupdate.obj" "utils\uartstdio.obj" "utils\ustdlib.obj" "third_party\fatfs\src\ff.obj" "third_party\fatfs\port\mmc-rdk-idm.obj" "drivers\formike240x320x16_ili9320.obj" "drivers\touch.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
