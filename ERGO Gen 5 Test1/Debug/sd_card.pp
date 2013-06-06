@@ -53,10 +53,10 @@ sd_card.obj: C:/StellarisWare/third_party/fatfs/src/integer.h
 sd_card.obj: C:/StellarisWare/third_party/fatfs/src/diskio.h
 sd_card.obj: C:/StellarisWare/boards/rdk-idm/drivers/formike240x320x16_ili9320.h
 sd_card.obj: C:/StellarisWare/boards/rdk-idm/drivers/touch.h
-sd_card.obj: ../GPS.h
 sd_card.obj: C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/inttypes.h
 sd_card.obj: C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/stdint.h
 sd_card.obj: C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/_fmt_specifier.h
+sd_card.obj: C:/Users/Simon/ERGO\ UNIT/ERGO\ Gen\ 5\ Test1/GPS.h
 
 ../sd_card.c: 
 C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/string.h: 
@@ -111,7 +111,7 @@ C:/StellarisWare/third_party/fatfs/src/integer.h:
 C:/StellarisWare/third_party/fatfs/src/diskio.h: 
 C:/StellarisWare/boards/rdk-idm/drivers/formike240x320x16_ili9320.h: 
 C:/StellarisWare/boards/rdk-idm/drivers/touch.h: 
-../GPS.h: 
 C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/inttypes.h: 
 C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/stdint.h: 
 C:/ti2/ccsv5/tools/compiler/arm_5.0.1/include/_fmt_specifier.h: 
+C:/Users/Simon/ERGO\ UNIT/ERGO\ Gen\ 5\ Test1/GPS.h: 

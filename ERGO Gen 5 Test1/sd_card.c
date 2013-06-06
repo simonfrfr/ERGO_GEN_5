@@ -24,11 +24,13 @@
 #include "drivers/formike240x320x16_ili9320.h"
 #include "drivers/touch.h"
 #include "utils/uartstdio.h"
-#include "GPS.h"
+#include <inttypes.h>
+//#include "GPS.h"
 
 
 
-//#include <GPS_UBLOX.cpp>
+
+#include <GPS.h>
 //extern GPS;
 //*****************************************************************************
 //
@@ -107,7 +109,7 @@ static char g_cTmpBuf[PATH_BUF_SIZE];
 // The following are data structures used by FatFs.
 //
 //*****************************************************************************
-static FATFS g_sFatFs;
+//static FATFS g_sFatFs;
 static DIR g_sDirObject;
 static FILINFO g_sFileInfo;
 static FIL g_sFileObject;
@@ -371,7 +373,7 @@ Canvas(g_sBackground, WIDGET_ROOT, &g_sIPAddr, &g_sPWD,
 Canvas(g_sHeading, WIDGET_ROOT, &g_sBackground, 0,
        &g_sFormike240x320x16_ILI9320, 0, 0, 240, 23,
        (CANVAS_STYLE_FILL | CANVAS_STYLE_OUTLINE | CANVAS_STYLE_TEXT),
-       ClrDarkBlue, ClrWhite, ClrWhite, g_pFontCm20, "sd-card", 0, 0);
+       ClrDarkBlue, ClrWhite, ClrWhite, g_pFontCm20, "ERGO GEN 5", 0, 0);
 
 //*****************************************************************************
 //
@@ -1557,7 +1559,7 @@ int
 main(void)
 {
    // int nStatus;
-    FRESULT fresult;
+ //   FRESULT fresult;
     unsigned long ulUser0, ulUser1, ulIPAddr;
     unsigned char pucMACAddr[6];
     static char pcMACBuffer[32];
@@ -1614,7 +1616,7 @@ main(void)
     // Turn on the backlight.
     //
     Formike240x320x16_ILI9320BacklightOn();
-
+    Initi();
     //
     // Get the MAC address from the UART0 and UART1 registers in NV ram.
     //
@@ -1662,10 +1664,10 @@ main(void)
     //
     // Display the MAC address on the screen.
     //
-    usprintf(pcMACBuffer,
-             "MAC: %02x-%02x-%02x-%02x-%02x-%02x",
-             pucMACAddr[0], pucMACAddr[1], pucMACAddr[2], pucMACAddr[3],
-             pucMACAddr[4], pucMACAddr[5]);
+  //  usprintf(pcMACBuffer,
+     //        "MAC: %02x-%02x-%02x-%02x-%02x-%02x",
+    //         pucMACAddr[0], pucMACAddr[1], pucMACAddr[2], pucMACAddr[3],
+   //          pucMACAddr[4], pucMACAddr[5]);
 
     //
     // Add the compile-time defined widgets to the widget tree.
@@ -1691,18 +1693,18 @@ main(void)
     //
     // Print hello message to user.
     //
-    UARTprintf("\n\rendering nSD Card\n");
-    UARTprintf("Type \'help\' for help.\n");
+    //UARTprintf("\n\rendering nSD Card\n");
+    //UARTprintf("Type \'help\' for help.\n");
 
     //
     // Mount the file system, using logical disk 0.
     //
-    fresult = f_mount(0, &g_sFatFs);
-    if(fresult != FR_OK)
-    {
-        UARTprintf("f_mount error: %s\n", StringFromFresult(fresult));
-        return(1);
-    }
+    //fresult = f_mount(0, &g_sFatFs);
+    //if(fresult != FR_OK)
+   // {
+     //   UARTprintf("f_mount error: %s\n", StringFromFresult(fresult));
+       // return(1);
+    //}
 
     //
     // Remember that we don't have an IP address yet.
@@ -1726,11 +1728,18 @@ main(void)
 
 
     	   Read();
+    	    WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sHeading);
 
+    	    //
+    	    // Set some initial strings.
+    	    //
+    	    ListBoxTextAdd(&g_sDirList, "Testing");
+    	    usprintf(pcMACBuffer, "%i", ch);
+    	    CanvasTextSet(&g_sMACAddr, pcMACBuffer);
+    	    WidgetPaint(WIDGET_ROOT);
+    	    WidgetMessageQueueProcess();
 
     //	GPS Read();
-    	PrintfStatus("%i",ch);
-
         //
         // Print a prompt to the console.  Show the CWD.
         //
